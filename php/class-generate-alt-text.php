@@ -26,7 +26,7 @@ class Generate_Alt_Text {
 	}
 
 	private function hook_auto_alt_fix_1() {
-		add_filter('image_send_to_editor', array( $this, 'auto_alt_fix_1'), 10, 2);
+		add_filter('image_send_to_editor', array( $this, 'auto_alt_fix_1'), 9, 2);
 
 	}
 
@@ -35,7 +35,7 @@ class Generate_Alt_Text {
 	}
 
 	private function hook_auto_alt_fix_2() {
-		add_filter('wp_get_attachment_image_attributes', array( $this, 'auto_alt_fix_2'), 10, 2);
+		add_filter('wp_get_attachment_image_attributes', array( $this, 'auto_alt_fix_2'), 9, 2);
 
 	}
 
