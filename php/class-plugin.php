@@ -21,21 +21,21 @@ class Plugin extends Plugin_Base {
 	 *
 	 * @action after_setup_theme, 9
 	 */
-	public function init() {
-		$this->config = apply_filters( 'addaltdesctoimg_plugin_config', $this->config, $this );
+	/**
+	 * Plugin constructor.
+	 */
+	public function __construct() {
+		parent::__construct();
+
+		// Initiate classes.
+		$classes = array(
+			new Generate_Alt_Text( $this ),
+		);
+
+		// Add classes doc hooks.
+		foreach ( $classes as $instance ) {
+			$this->add_doc_hooks( $instance );
+		}
 	}
-
-	/**
-	 * Register scripts.
-	 *
-	 * @action wp_enqueue_scripts
-	 */
-	public function register_scripts() {}
-
-	/**
-	 * Register styles.
-	 *
-	 * @action wp_enqueue_scripts
-	 */
-	public function register_styles() {}
 }
+
